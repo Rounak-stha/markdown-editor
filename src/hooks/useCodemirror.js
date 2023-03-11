@@ -20,6 +20,10 @@ Note Body
 
 ***Italic Text***
 
+![ImageName](URL)
+
+[Name](URL "I am link title")
+
 | Column 1 | Column 2 | Column 3 |
 | -------- | -------- | -------- |
 | Item     | Item     | Item     |
@@ -29,7 +33,7 @@ Note Body
 - List Item 3
 `;
 
-const doc = `# Heading 1
+/* const doc = `# Heading 1
 ---
 ## Heading 2
 ---
@@ -48,7 +52,7 @@ ${'```js\nconsole.log("hahahaha")\n```'}
 | Header      | Title       | Here's this   |
 | Paragraph   | Text        | And more      |
 `;
-
+ */
 const extensions = [
   keymap.of([
     ...defaultKeymap,
@@ -78,7 +82,7 @@ export function useCodeMirror(placeholderText, onChange) {
 
     let editor = new EditorView({
       state: EditorState.create({
-        doc,
+        // doc,
         extensions: [
           ...extensions,
           placeholder(placeholderText || customPlaceholder),
