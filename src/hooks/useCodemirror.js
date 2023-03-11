@@ -1,11 +1,17 @@
-import { EditorView } from '@codemirror/view'
-import { EditorState,  } from '@codemirror/state'
-import { indentUnit } from '@codemirror/language'
-import { keymap, placeholder } from '@codemirror/view'
-import { insertTab, indentLess, defaultKeymap, history, historyKeymap } from '@codemirror/commands'
-import MarkdownExtensions from '../lib/mdExtensions'
+import { EditorView } from "@codemirror/view";
+import { EditorState } from "@codemirror/state";
+import { indentUnit } from "@codemirror/language";
+import { keymap, placeholder } from "@codemirror/view";
+import {
+  insertTab,
+  indentLess,
+  defaultKeymap,
+  history,
+  historyKeymap,
+} from "@codemirror/commands";
+import MarkdownExtensions from "../lib/mdExtensions";
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef } from "react";
 
 const customPlaceholder = `# Note Heading
 
@@ -22,8 +28,7 @@ Note Body
 - List Item 1
 - List Item 2
 - List Item 3
-`
-  
+`;
 
 const doc = `
 # Heading 1
@@ -44,57 +49,55 @@ ${'```js\nconsole.log("hahahaha")\n```'}
 | :---        |    :----:   |          ---: |
 | Header      | Title       | Here's this   |
 | Paragraph   | Text        | And more      |
-`
-
-
+`;
 
 const extensions = [
-
-    keymap.of([...defaultKeymap, ...historyKeymap, { key: 'Tab', run: insertTab }, { key: 'Shift-Tab', run: indentLess }]),
-    indentUnit.of('\t'), 
-    EditorView.lineWrapping,
-    history(),
-    ...MarkdownExtensions
-]
+  keymap.of([
+    ...defaultKeymap,
+    ...historyKeymap,
+    { key: "Tab", run: insertTab },
+    { key: "Shift-Tab", run: indentLess },
+  ]),
+  indentUnit.of("\t"),
+  EditorView.lineWrapping,
+  history(),
+  ...MarkdownExtensions,
+];
 
 /**
  * Docs: https://codemirror.net/docs/guide/
- * @param {*} doc 
- * @param {*} placeholderText 
- * @returns 
+ * @param {*} doc
+ * @param {*} placeholderText
+ * @returns
  */
 
 export function useCodeMirror(placeholderText, onChange) {
-    const [Editor, setEditor] = useState(null)
-    const refContainer = useRef(null)
+  const [Editor, setEditor] = useState(null);
+  const refContainer = useRef(null);
 
-    useEffect(() => {
-        if (!refContainer.current) return
+  useEffect(() => {
+    if (!refContainer.current) return;
 
-        let editor = new EditorView({
-            state: EditorState.create({
-              doc,
-                extensions: [
-                    ...extensions, 
-                    placeholder(placeholderText || customPlaceholder),
-                    EditorView.updateListener.of(update => {
-                      if (update.changes) {
-                        onChange && onChange(update.state.doc.toString())
-                      }
-                    }),
-                  ],
-            }),
-            parent: refContainer.current
-        }) 
+    let editor = new EditorView({
+      state: EditorState.create({
+        doc,
+        extensions: [
+          ...extensions,
+          placeholder(placeholderText || customPlaceholder),
+          EditorView.updateListener.of((update) => {
+            if (update.changes) {
+              onChange && onChange(update.state.doc.toString());
+            }
+          }),
+        ],
+      }),
+      parent: refContainer.current,
+    });
 
-        setEditor(editor)
+    setEditor(editor);
 
-        return () => editor.destroy()
-    }, [refContainer])
+    return () => editor.destroy();
+  }, [refContainer]);
 
-    return [refContainer, Editor]
+  return [refContainer, Editor];
 }
-
-
-
-

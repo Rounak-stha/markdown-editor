@@ -5,18 +5,16 @@ import { languages } from "@codemirror/language-data";
 import { cTags } from "./tweaked-one-dark-theme";
 
 const languageExtension = markdown({
-    base: markdownLanguage,
-    codeLanguages: languages,
-    addKeymap: true,
-    extensions: [
-        {
-            props: [
-                styleTags(cTagsMark)
-            ]
-        }
-    ]
-})
+  base: markdownLanguage,
+  codeLanguages: languages,
+  addKeymap: true,
+  extensions: [
+    {
+      props: [styleTags(cTagsMark)],
+    },
+  ],
+});
 
-const MarkdownExtensions = [ languageExtension, tweakedOneDark ]
+const MarkdownExtensions = [languageExtension, tweakedOneDark];
 
-export default MarkdownExtensions 
+export default MarkdownExtensions;

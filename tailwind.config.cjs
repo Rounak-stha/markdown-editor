@@ -7,15 +7,15 @@ module.exports = {
         DEFAULT: {
           css: {
             blockquote: {
-              'background': theme('colors.gray.600'),
-              'border-left-color': theme('colors.zinc.400'),
-              'content': 'none'
+              background: theme("colors.gray.600"),
+              "border-left-color": theme("colors.zinc.400"),
+              content: "none",
             },
-            maxWidth: '100%'
-          }
-        }
-      })
+            maxWidth: "100%",
+          },
+        },
+      }),
     },
   },
-  plugins: [require('@tailwindcss/typography')],
-}
+  plugins: [require("@tailwindcss/typography")],
+};
