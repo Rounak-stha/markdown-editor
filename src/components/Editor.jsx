@@ -18,14 +18,15 @@ const mdxToHtml = unified()
 export default function Editor() {
   const [doc, setDoc] = useState("");
   const [refContainer, Editor] = useCodeMirror("", setDoc);
-  console.log(doc);
+
   return (
     <div className="h-full flex flex-col md:flex-row">
-      <div className="h-full flex-1 overflow-auto">
+      <div className="h-full flex-1 p-6 overflow-auto">
         <div ref={refContainer} className="h-full mono-font"></div>
       </div>
-      <div className="flex-1 overflow-auto">
-        <div className="w-full prose prose-invert prose-headings:mb-2 prose-hr:my-4 prose-a:text-blue-600 p-6">
+      {/* pl-0 is required to make it seem like the 2 divs are sized equally bc of codemirror scrollbar being inside the div */}
+      <div className="flex-1 p-6 pl-0 overflow-auto">
+        <div className="w-full prose prose-invert prose-headings:my-3 prose-hr:my-4 prose-a:text-blue-600">
           {mdxToHtml.processSync(doc).result}
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import { EditorView } from "@codemirror/view";
 import { EditorState } from "@codemirror/state";
 import { indentUnit } from "@codemirror/language";
@@ -10,8 +11,6 @@ import {
   historyKeymap,
 } from "@codemirror/commands";
 import MarkdownExtensions from "../lib/mdExtensions";
-
-import { useState, useEffect, useRef } from "react";
 
 const customPlaceholder = `# Note Heading
 
@@ -30,8 +29,7 @@ Note Body
 - List Item 3
 `;
 
-const doc = `
-# Heading 1
+const doc = `# Heading 1
 ---
 ## Heading 2
 ---
