@@ -62,12 +62,13 @@ export const oneDarkTheme = EditorView.theme(
   {
     "&": {
       color: ivory,
-      lineHeight: 1.11111,
       backgroundColor: background,
     },
-
+    // PaddingRight here inside ensures that the scrollbar is out of the padding area
+    // for uniform spacing with non-editor-related elements
     ".cm-content": {
       caretColor: cursor,
+      paddingRight: "24px",
     },
 
     ".cm-cursor, .cm-dropCursor": { borderLeftColor: cursor },

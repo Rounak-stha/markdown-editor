@@ -21,11 +21,12 @@ export default function Editor() {
 
   return (
     <div className="h-full flex flex-col md:flex-row">
-      <div className="h-full flex-1 p-6 overflow-auto">
+      {/* pr-0 is required to make it seem like the 2 divs are sized equally bc of codemirror scrollbar being inside the div */}
+      {/* pr-4 is added onthe codemirror darktheme file */}
+      <div className="h-full p-6 pr-0 border-b-4 border-slate-800 md:border-none flex-1 overflow-auto">
         <div ref={refContainer} className="h-full mono-font"></div>
       </div>
-      {/* pl-0 is required to make it seem like the 2 divs are sized equally bc of codemirror scrollbar being inside the div */}
-      <div className="flex-1 p-6 pl-0 overflow-auto">
+      <div className="flex-1 p-6 overflow-auto">
         <div className="w-full prose prose-invert prose-headings:my-3 prose-hr:my-4 prose-a:text-blue-600">
           {mdxToHtml.processSync(doc).result}
         </div>
