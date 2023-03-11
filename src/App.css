@@ -1,0 +1,15 @@
+.mono-font {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.mono-font * {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.App {
+    height: 100%;
+}
+
+.cm-editor {
+    height: 100%;
+}
