@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { EditorView } from "@codemirror/view";
+import { EditorView, drawSelection } from "@codemirror/view";
 import { EditorState } from "@codemirror/state";
 import { indentUnit } from "@codemirror/language";
 import { keymap, placeholder } from "@codemirror/view";
@@ -60,6 +60,7 @@ const extensions = [
     { key: "Tab", run: insertTab },
     { key: "Shift-Tab", run: indentLess },
   ]),
+  drawSelection(),
   indentUnit.of("\t"),
   EditorView.lineWrapping,
   history(),
