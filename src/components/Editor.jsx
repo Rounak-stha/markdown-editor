@@ -6,7 +6,8 @@ import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse/lib";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
-import { useCodeMirror } from "../hooks/useCodemirror";
+
+import useCodeMirror from "../../packages/markdown-editor";
 
 const mdxToHtml = unified()
   .use(remarkParse)

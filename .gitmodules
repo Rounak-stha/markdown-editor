@@ -1,0 +1,3 @@
+[submodule "packages/markdown-editor"]
+	path = packages/markdown-editor
+	url = https://github.com/Rounak-stha/markdown-editor.git
