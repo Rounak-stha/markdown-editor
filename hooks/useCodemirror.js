@@ -64,7 +64,7 @@ const extensions = [
   indentUnit.of("\t"),
   EditorView.lineWrapping,
   history(),
-  ...MarkdownExtensions,
+  MarkdownExtensions,
 ];
 
 /**
