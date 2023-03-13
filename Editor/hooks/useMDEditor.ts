@@ -67,17 +67,13 @@ const extensions = [
   MarkdownExtensions,
 ];
 
-/**
- * Docs: https://codemirror.net/docs/guide/
- * @param {(updatedEditorText: string) => void} onChange
- * @param {string} doc
- * @param {string} placeholderText
- * @returns
- */
-
-export function useMDEditor(onChange, initialDoc, placeholderText) {
-  const [Editor, setEditor] = useState(null);
-  const refContainer = useRef(null);
+export function useMDEditor(
+  onChange: (updatedEditorText: string) => void,
+  initialDoc = "",
+  placeholderText = ""
+): [React.RefObject<HTMLDivElement>, EditorView | undefined] {
+  const [Editor, setEditor] = useState<EditorView>();
+  const refContainer = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!refContainer.current) return;

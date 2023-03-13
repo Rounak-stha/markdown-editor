@@ -1,9 +1,10 @@
 import { cTagsMark, tweakedOneDark } from "./tweaked-one-dark-theme";
 import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
-import { styleTags, Tag } from "@lezer/highlight";
+import { styleTags } from "@lezer/highlight";
 import { languages } from "@codemirror/language-data";
+import { LanguageSupport } from "@codemirror/language";
 
-const languageExtension = markdown({
+const languageExtension: LanguageSupport = markdown({
   base: markdownLanguage,
   codeLanguages: languages,
   addKeymap: true,

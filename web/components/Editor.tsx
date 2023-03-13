@@ -1,18 +1,7 @@
-import { createElement, Fragment } from "react";
 import { useState } from "react";
-import rehypePrism from "rehype-prism";
-import rehypeReact from "rehype-react/lib";
-import remarkGfm from "remark-gfm";
-import remarkParse from "remark-parse/lib";
-import remarkRehype from "remark-rehype";
-import { unified } from "unified";
+import mdxToHtml from "../lib/mdxToHtml";
+// @ts-ignore
 import useMDEditor from "../../Editor";
-const mdxToHtml = unified()
-  .use(remarkParse)
-  .use(remarkGfm)
-  .use(remarkRehype)
-  .use(rehypePrism)
-  .use(rehypeReact, { createElement, Fragment });
 
 export default function Editor() {
   const [doc, setDoc] = useState("");
@@ -27,7 +16,7 @@ export default function Editor() {
       </div>
       <div className="flex-1 p-6 overflow-auto">
         <div className="w-full prose prose-invert prose-headings:my-3 prose-hr:my-4 prose-a:text-blue-600">
-          {mdxToHtml.processSync(doc).result}
+          {mdxToHtml.processSync(Editor?.state.doc.toString()).result}
         </div>
       </div>
     </div>
