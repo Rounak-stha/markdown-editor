@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npm run dev -w web"
+    "dev": "npm run dev -w web",
+    "build": "npm run build -w web"
   },
   "dependencies": {
     "@codemirror/commands": "^6.2.1",
