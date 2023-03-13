@@ -6,8 +6,7 @@ import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse/lib";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
-
-import useCodeMirror from "../../packages/markdown-editor";
+import { useMDEditor } from "../../packages/markdown-editor/hooks/useMDEditor";
 
 const mdxToHtml = unified()
   .use(remarkParse)
@@ -18,7 +17,7 @@ const mdxToHtml = unified()
 
 export default function Editor() {
   const [doc, setDoc] = useState("");
-  const [refContainer, Editor] = useCodeMirror("", setDoc);
+  const [refContainer, Editor] = useMDEditor(setDoc);
 
   return (
     <div className="h-full flex flex-col md:flex-row">
