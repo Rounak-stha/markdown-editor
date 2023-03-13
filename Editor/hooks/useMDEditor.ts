@@ -12,9 +12,8 @@ import {
 } from "@codemirror/commands";
 import MarkdownExtensions from "../lib/mdExtensions";
 
-console.log("Test Log");
-
 const customPlaceholder = `# Note Heading
+
 Note Body
 
 **Bold Text**
