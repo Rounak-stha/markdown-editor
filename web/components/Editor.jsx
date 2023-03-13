@@ -7,7 +7,6 @@ import remarkParse from "remark-parse/lib";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 import useMDEditor from "../../Editor";
-
 const mdxToHtml = unified()
   .use(remarkParse)
   .use(remarkGfm)
