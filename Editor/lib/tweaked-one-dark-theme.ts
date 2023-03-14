@@ -63,7 +63,8 @@ export const oneDarkTheme = EditorView.theme(
   {
     "&": {
       color: ivory,
-      backgroundColor: background,
+      backgroundColor: "inherit",
+      height: "100%",
     },
     // PaddingRight here inside ensures that the scrollbar is out of the padding area
     // for uniform spacing with non-editor-related elements
