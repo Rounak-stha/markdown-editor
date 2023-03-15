@@ -12,6 +12,9 @@ module.exports = {
               content: "none",
             },
             maxWidth: "100%",
+            "*": {
+              lineHeight: 1.4,
+            },
           },
         },
       }),

@@ -19,14 +19,7 @@ body {
   display: flex;
   background-color: #1d2125;
   font-family: "IBM Plex Mono", monospace;
-}
-
-.mono-font {
-  font-family: "IBM Plex Mono", monospace;
-}
-
-.mono-font * {
-  font-family: "IBM Plex Mono", monospace;
+  color: #abb2bf;
 }
 
 .App {

@@ -61,11 +61,13 @@ export const color = {
 /// The editor theme styles for One Dark.
 export const oneDarkTheme = EditorView.theme(
   {
-    "&": {
-      color: ivory,
-      backgroundColor: "inherit",
-      height: "100%",
+    "&": {},
+
+    ".cm-scroller": {
+      fontFamily: "inherit",
+      lineHeight: 1.4,
     },
+
     // PaddingRight here inside ensures that the scrollbar is out of the padding area
     // for uniform spacing with non-editor-related elements
     ".cm-content": {
