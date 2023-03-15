@@ -16,7 +16,7 @@ export default function Editor() {
       </div>
       <div className="flex-1 p-6 overflow-auto">
         <div className="w-full prose prose-invert prose-headings:my-3 prose-hr:my-4 prose-a:text-blue-600">
-          {mdxToHtml.processSync(Editor?.state.doc.toString()).result}
+          {mdxToHtml.processSync(doc).result}
         </div>
       </div>
     </div>

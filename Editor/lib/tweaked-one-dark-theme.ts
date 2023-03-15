@@ -23,6 +23,7 @@ const cTagsMark = {
 
 const chalky = "#e5c07b",
   coral = "#e06c75",
+  darkCoral = "#5a2b2f",
   cyan = "#56b6c2",
   invalid = "#ffffff",
   ivory = "#abb2bf",
@@ -107,8 +108,6 @@ export const oneDarkHighlightStyle = HighlightStyle.define([
   { tag: cTags.imageName, color: malibu },
   { tag: cTags.linkTitle, color: stone },
   { tag: t.url, color: "#0074D9" },
-  { tag: t.heading, color: coral, fontWeight: "bold" },
-  { tag: cTags.headerMark, color: coral },
   { tag: t.processingInstruction, color: sage },
   { tag: t.keyword, color: violet },
   { tag: [t.function(t.variableName), t.labelName], color: malibu },
@@ -168,6 +167,8 @@ export const oneDarkHighlightStyle = HighlightStyle.define([
     fontWeight: "bold",
     color: coral,
   },
+  // Order matters
+  { tag: cTags.headerMark, color: darkCoral },
 ]);
 
 /// Extension to enable the One Dark Tweaked Theme (both the editor theme and
