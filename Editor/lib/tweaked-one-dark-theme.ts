@@ -151,19 +151,18 @@ export const oneDarkHighlightStyle = HighlightStyle.define([
   },
   {
     tag: t.heading1,
-    fontSize: "2.25em",
-    fontWeight: "bold",
-    color: coral,
+    fontSize: "1.8rem",
   },
   {
     tag: t.heading2,
-    fontSize: "1.5em",
-    fontWeight: "bold",
-    color: coral,
+    fontSize: "1.5rem",
   },
   {
     tag: t.heading3,
-    fontSize: "1.2em",
+    fontSize: "1.25rem",
+  },
+  {
+    tag: t.heading,
     fontWeight: "bold",
     color: coral,
   },
