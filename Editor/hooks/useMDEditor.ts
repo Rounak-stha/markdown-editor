@@ -1,15 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import { EditorView, drawSelection } from "@codemirror/view";
+import { EditorView } from "@codemirror/view";
 import { EditorState } from "@codemirror/state";
-import { indentUnit } from "@codemirror/language";
-import { keymap, placeholder } from "@codemirror/view";
-import {
-  insertTab,
-  indentLess,
-  defaultKeymap,
-  history,
-  historyKeymap,
-} from "@codemirror/commands";
+import { placeholder } from "@codemirror/view";
 import MarkdownExtensions from "../lib/mdExtensions";
 
 const customPlaceholder = `# Note Heading
@@ -54,19 +46,6 @@ ${'```js\nconsole.log("hahahaha")\n```'}
 `;
 
  */
-const extensions = [
-  keymap.of([
-    ...defaultKeymap,
-    ...historyKeymap,
-    { key: "Tab", run: insertTab },
-    { key: "Shift-Tab", run: indentLess },
-  ]),
-  drawSelection(),
-  indentUnit.of("\t"),
-  EditorView.lineWrapping,
-  history(),
-  MarkdownExtensions,
-];
 
 export function useMDEditor(
   onChange: (updatedEditorText: string) => void,
@@ -83,7 +62,7 @@ export function useMDEditor(
       state: EditorState.create({
         doc: initialDoc && initialDoc,
         extensions: [
-          ...extensions,
+          ...MarkdownExtensions,
           placeholder(placeholderText || customPlaceholder),
           EditorView.updateListener.of((update) => {
             if (update.changes) {
